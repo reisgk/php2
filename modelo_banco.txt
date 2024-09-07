@@ -1,0 +1,36 @@
+create table evento
+(
+    id      bigint       not null
+        primary key,
+    data    date         not null,
+    horario time(6)      not null,
+    nome    varchar(255) not null
+);
+
+create table lote
+(
+    id         bigint       not null
+        primary key,
+    num_lote   varchar(255) null,
+    tipo_lote  varchar(255) null,
+    valor_lote varchar(255) null,
+    evento_id  bigint       null,
+    constraint FKhkrcjb2doabko33qu1qplcx80
+        foreign key (evento_id) references evento (id)
+);
+
+create table pessoa
+(
+    id  bigint    not null
+        primary key,
+    compareceu bit          null,
+    cpf        varchar(255) not null,
+    nome       varchar(255) not null,
+    sexo       varchar(255) not null,
+    role_id    bigint       null,
+    lote_id    bigint       null,
+    constraint FKbnhaqkhgeteylgusvgqvmjglj
+        foreign key (lote_id) references lote (id),
+    constraint FKojsy9s3yub132o7a5jd6ak2he
+        foreign key (role_id) references evento (id)
+);
