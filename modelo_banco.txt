@@ -15,8 +15,7 @@ create table lote
     tipo_lote  varchar(255) null,
     valor_lote varchar(255) null,
     evento_id  bigint       null,
-    constraint FKhkrcjb2doabko33qu1qplcx80
-        foreign key (evento_id) references evento (id)
+    foreign key (evento_id) references evento (id)
 );
 
 create table pessoa
@@ -30,7 +29,6 @@ create table pessoa
     role_id    bigint       null,
     lote_id    bigint       null,
     constraint FKbnhaqkhgeteylgusvgqvmjglj
-        foreign key (lote_id) references lote (id),
-    constraint FKojsy9s3yub132o7a5jd6ak2he
-        foreign key (role_id) references evento (id)
+    foreign key (lote_id) references lote (id),
+    foreign key (role_id) references evento (id)
 );
